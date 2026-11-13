@@ -2,7 +2,7 @@ import {useEffect,useMemo,useState} from 'react';
 import {Search,ArrowUpRight,ImageOff} from 'lucide-react';
 import seasons from './seasons.js';
 import './library.css';
-import {useSeasonArtwork,SeasonImage} from './seasonArtwork.js';
+import {useSeasonArtwork,SeasonImage} from './seasonArtwork.jsx';
 export default function SeasonLibrary(){
  const [query,setQuery]=useState(''),[chapter,setChapter]=useState('ALL');
  const art=useSeasonArtwork();
