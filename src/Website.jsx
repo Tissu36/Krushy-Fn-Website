@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {ArrowUpRight,ArrowRight,Download,Menu,X,Monitor,Layers3,ShieldCheck,FolderOpen,ChevronRight, Github, Sparkles} from 'lucide-react';
+import {ArrowUpRight,ArrowRight,Download,Menu,X,Monitor,Layers3,ShieldCheck,FolderOpen,ChevronRight} from 'lucide-react';
 import seasons from './seasons.js';
 import './website.css';
 const features=[
