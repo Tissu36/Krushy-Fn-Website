@@ -4,7 +4,7 @@ import seasons from './seasons.js';
 import SeasonLibrary from './SeasonLibrary.jsx';
 import SkinLibrary from './SkinLibrary.jsx';
 import './website.css';
-import {useSeasonArtwork,SeasonImage} from './seasonArtwork.js';
+import {useSeasonArtwork,SeasonImage} from './seasonArtwork.jsx';
 const features=[
  {icon:Layers3,title:'Your seasons. One library.',body:'Explore Fortnite history from the original island through modern chapters, OG returns, and mini-seasons.'},
  {icon:FolderOpen,title:'Built around your library.',body:'A desktop-first experience designed for organizing installed builds and managing local game files.'},
