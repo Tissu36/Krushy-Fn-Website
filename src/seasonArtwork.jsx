@@ -1,0 +1,6 @@
+import {useEffect,useState} from 'react';
+import seasons from './seasons.js';
+let cached=null,loading=null;
+function mapRows(rows){const mapped={};for(const [i,row] of rows.entries()){if(!row.image)continue;const number=Number(row.number);let season=seasons[number-1];if(!season||number<1||number>seasons.length)season=seasons[i];if(season)mapped[season.id]=row.image}return mapped}
+export function useSeasonArtwork(){const [images,setImages]=useState(cached||{});useEffect(()=>{let alive=true;if(!loading)loading=fetch('/api/season-art').then(r=>{if(!r.ok)throw Error('Artwork unavailable');return r.json()}).then(data=>{cached=mapRows(data.seasons||[]);return cached}).catch(()=>{loading=null;return {}});loading.then(result=>{if(alive)setImages(result)});return()=>{alive=false}},[]);return images}
+export function SeasonImage({season,remote,className='',eager=false}){const sources=[remote,season.image,season.fallbackImage].filter(Boolean);const [index,setIndex]=useState(0);useEffect(()=>setIndex(0),[remote,season.id]);return <img className={className} src={sources[Math.min(index,sources.length-1)]} alt={season.title+' artwork'} loading={eager?'eager':'lazy'} onError={()=>setIndex(n=>Math.min(n+1,sources.length-1))}/>}
